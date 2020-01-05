@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<head>
+  <script type="text/javascript">
+
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light2",
+        animationEnabled: true,
+        title:{
+          fontSize: 20,
+          text: "PM 2.5 Per Day"
+        },
+        axisX: {
+          titleFontSize: 16,
+          title: "Date"
+        },
+        axisY: {
+          titleFontSize: 16,
+          title: "PM 2.5 =="
+        },
+        data: [{
+          type: "line",
+          lineColor: "#eea29a",
+          lineThickness: 2,
+          markerColor: "#618685",
+          markerType: "circle",
+          dataPoints: [
+            { x: new Date(2012, 01, 1), y: 450 },
+            { x: new Date(2012, 01, 2), y: 414 },
+            { x: new Date(2012, 01, 3), y: 520 },
+            { x: new Date(2012, 01, 4), y: 460 },
+            { x: new Date(2012, 01, 5), y: 450 },
+            { x: new Date(2012, 01, 6), y: 500 },
+            { x: new Date(2012, 01, 7), y: 480 },
+            { x: new Date(2012, 01, 8), y: 480 },
+            { x: new Date(2012, 01, 9), y: 410 },
+            { x: new Date(2012, 01, 10), y: 500 },
+            { x: new Date(2012, 01, 11), y: 480 },
+            { x: new Date(2012, 01, 12), y: 510 }
+          ]
+        }]
+      });
+      chart.render();
+    }
+    </script>
+   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+</head>
+
+<nav id="navbar-example2" class="navbar navbar-light bg-light">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="#Map">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#PMOverview">PM 2.5 Overview</a>
+          </li>
+        </ul>
+      </nav>
+      <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+        <h4 id="Map">Map</h4>
+        
+        <div id="googleMap"></div>
+
+        <script>
+            function myMap() {
+            var mapProp= {
+              center:new google.maps.LatLng(13.737921, 100.628288),
+              zoom: 19,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(13.737921, 100.628288),
+              map: map
+            });
+            }
+            </script>
+
+        <script 
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLhmf89ATNS9ki9VLvA2mi2exCcrxWV8o&callback=myMap">
+        </script>
+        
+        <h4 id="PMOverview">PM 2.5 Overview</h4>
+        <div id="chartContainer" style="height: 400px; width: 70%; padding-inline-start: 15%; padding-bottom: 5%;"></div>
+    </div>

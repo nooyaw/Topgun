@@ -1,0 +1,22 @@
+h1 {
+  padding: 30px;
+}
+
+p {
+  padding: 30px;
+}
+
+#Map {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+#PMOverview {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+#googleMap {
+  width: 100%;
+  height: 400px;
+}
